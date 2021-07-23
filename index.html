@@ -1,1 +1,172 @@
-<h1>DOM play</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Time of Day</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+		* {padding:0; margin:0;}
+		html {background-color:rgb(73, 166, 197);}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			max-width:960px; /* keeps from getting too large on wide screen */
+			width:90%; /* shrink to fit screen */
+			margin:auto; /* center in html element */
+			background-color:rgb(243, 172, 172);
+			padding:20px;
+			min-height:100%; /* keeps from getting too large on wide screen */
+			}
+		img.flexible {
+			float:right;
+			padding:20px;
+			max-width:300px; /* actual size of image */
+			width:33%; /* approximate size taken on screen in maximum view */
+		}
+		p {margin:10px;}
+		h1,h2,h3,h4,h5,h6{
+			font-weight:normal;
+			margin:20px;
+			}
+		h1.masthead {margin-top:0;}
+		footer {
+			text-align:center;
+			clear:both; /* ride below all items */
+			}
+		nav{
+			text-align:center; /* centers the nav */
+		}
+		
+		nav ul {
+				list-style:none; /* removes the bullets */
+			}
+		nav ul li
+			{
+				display:inline-block; /* makes horizontal, but able to declare margins */
+				margin:0 2%; /* margin left-right, gets smaller as necessary */
+			}
+		nav a:hover{
+			text-decoration: none;
+		}	
+    </style>
+   
+</head>
+<body>
+	<header>
+		<h1>DOM Play</h1>
+		
+	</header>
+	<h2> </h2>
+    <main>
+	 <header><h3>JavaScript and Cymbeline</h3></header>
+	 <p>When his daughter Imogen secretly marries Posthumus – a good man without financial means – King Cymbeline banishes Posthumus in a fury. In Rome, missing his wife and his home, Posthumus meets Iachimo, who plants a seed in his mind that Imogen will be unfaithful to him in his absence. Overcome by anger and despair, Posthumus contacts his servant Pisanio with orders to murder Imogen, but the servant instead disguises her as a page and smuggles her out of court and off on a great Shakespearean adventure. 
+
+   </p>
+	 <p> 
+     <h3><strong>CHANGES made throught JavaScript:</strong></h3> 
+      <p> <strong><em>Whenever a user clicks on one of script part, it will be automayically highlighted. Any time you click on a script that has similar actor all the other scripts will get highlited.  
+       </em></strong>
+    </p>	 
+	 </p>
+     <img class="flexible" src="https://c8.alamy.com/comp/BTTWET/posthumus-speaks-in-cymbeline-act-i-scene-i-by-william-shakespeare-BTTWET.jpg"/>
+
+     
+     <h3><strong>Cymbeline: Act 1, Scene 1, Britain. The garden of Cymbeline’s palace</strong></h3>
+     <div id="play">
+     <p><span data-actor="QUEEN">QUEEN:
+      No, be assur’d you shall not find me, daughter,
+      After the slander of most stepmothers, 
+      Evil-ey’d unto you. You’re my prisoner, but    
+      Your jailer shall deliver you the keys     
+      That lock up your restraint. For you, Posthumus,   
+      So soon as I can win th’ offended King,   
+      I will be known your advocate. Marry, yet  
+      The fire of rage is in him, and ’twere good   
+      You lean’d unto his sentence with what patience
+      Your wisdom may inform you.
+        </span></p>
+     <p><span data-actor="POSTHUMUS LEONATUS">POSTHUMUS LEONATUS:
+      Please your Highness,
+      I will from hence today.
+       </span></p>
+     <p><span data-actor="QUEEN">QUEEN:
+      You know the peril,
+      I’ll fetch a turn about the garden, pitying     
+      The pangs of barr’d affections, though the King     
+      Hath charg’d you should not speak together.
+        </span></p>
+     <p><span data-actor="IMOGEN">IMOGEN:
+      Dissembling courtesy! How fine this tyrant
+      Can tickle where she wounds! My dearest husband,    
+      I something fear my father’s wrath, but nothing     
+      (Always reserv’d my holy duty) what   
+      His rage can do on me. You must be gone,     
+      And I shall here abide the hourly shot      
+      Of angry eyes, not comforted to live,   
+      But that there is this jewel in the world     
+      That I may see again. </span></p>
+     <p><span data-actor="POSTHUMUS LEONATUS">POSTHUMUS LEONATUS:
+      My queen, my mistress!
+      O lady, weep no more, lest I give cause    
+      To be suspected of more tenderness     
+      Than doth become a man. I will remain      
+      The loyall’st husband that did e’er plight troth.      
+      My residence in Rome at one Philario’s,     
+      Who to my father was a friend, to me      
+      Known but by letter; thither write, my queen,      
+      And with mine eyes I’ll drink the words you send,      
+      Though ink be made of gall.
+        </span></p>
+     <p><span data-actor="QUEEN">QUEEN:
+      Be brief, I pray you.
+      If the King come, I shall incur I know not     
+      How much of his displeasure.
+        </span></p>
+    <p><span data-actor="POSTHUMUS LEONATUS">POSTHUMUS LEONATUS:
+      Should we be taking leave
+      As long a term as yet we have to live,     
+      The loathness to depart would grow. Adieu! </span></p>    
+      
+      <p><span data-actor="IMOGEN">IMOGEN:
+         Nay, stay a little:
+         Were you but riding forth to air yourself,     
+         Such parting were too petty. Look here, love,      
+         This diamond was my mother’s. Take it, heart,      
+         But keep it till you woo another wife,     
+         When Imogen is dead.  </span></p>        
+       
+    </div>
+    
+
+    </footer>
+
+	<script>
+        const spans = document.querySelectorAll('div#play span');
+
+for(const mySpan of spans){
+    mySpan.addEventListener('click',function(ev){
+        //alert(mySpan.dataset.actor);
+        highlightActor(mySpan.dataset.actor);
+
+    });
+}
+function highlightActor(myActor){
+
+    for(const mySpan of spans){ 
+        
+        if(myActor == mySpan.dataset.actor){  
+            mySpan.style.backgroundColor = 'lightskyblue'; 
+        }else{ 
+        mySpan.style.backgroundColor = 'rgb(243, 172, 172)';}
+    }   
+}
+
+	</script>
+    <!-- END Footer -->
+
+    
+</body>
+</html>
+
+
+ 
+
